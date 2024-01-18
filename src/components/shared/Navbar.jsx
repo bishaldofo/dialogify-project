@@ -13,6 +13,8 @@ const Navbar = () => {
                </div>
                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                   <li><Link href="/"><IoHome />Home</Link></li>
+                  <li><Link href="/"><IoHome />About</Link></li>
+                  <li><Link href="/"><IoHome />Contact</Link></li>
                </ul>
             </div>
             <a className="btn btn-ghost text-xl text-[#0079D3]">Dialogify</a>
