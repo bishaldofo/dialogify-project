@@ -1,3 +1,4 @@
+"use client"
 import LeftSide from "@/components/shared/Home/LeftSide";
 import RightSide from "@/components/shared/Home/RightSide";
 
@@ -13,7 +14,7 @@ const Home = () => {
             Main contents are comes here
            </div>
          </div>
-         <div className="bg-orange-200 h-[500px]">
+         <div className="bg-orange-200">
             <RightSide></RightSide>
          </div>
            </div>

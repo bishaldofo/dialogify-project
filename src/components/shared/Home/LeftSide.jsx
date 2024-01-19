@@ -4,7 +4,9 @@ const LeftSide = () => {
     return (
         <div>
         <LeftMenu></LeftMenu>
-        {/*I have need a image here */}
+        <div>
+            <h1>Some image comes here</h1>
+        </div>
         </div>
     );
 };
