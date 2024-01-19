@@ -1,6 +1,11 @@
 import Contact from "@/components/ContactForm";
 import Image from "next/image";
 
+export const metadata = {
+    title: 'Dialogify | Contact',
+    description: 'Dialogify Home Page',
+}
+
 const page = () => {
    return (
        <div>
