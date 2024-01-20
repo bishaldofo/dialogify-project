@@ -31,7 +31,7 @@ const Navbar = () => {
                </div>
                <div className="navbar-end gap-5">
                   <div className="form-control hidden md:block">
-                     <input type="text" placeholder="Search" className="input input-bordered w-24 rounded-none md:w-auto" />
+                     <input type="text" placeholder="Search" className=" border px-4 py-1 rounded-3xl input-bordered w-24   md:w-auto" />
                   </div>
                   <div className="dropdown dropdown-end">
                      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

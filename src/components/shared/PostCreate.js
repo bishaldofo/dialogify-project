@@ -7,7 +7,8 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 
 const PostCreate = () => {
    return (
-      <div className="w-full p-5 bg-white">
+      <div className=" sticky top-14   z-10  " >
+         <div className="w-full  p-5 bg-white">
          <div className="flex flex-col lg:flex-row w-full gap-6 items-start">
             <div className="w-[50px] rounded-full">
                <Image width={50} className="rounded-full" height={50} alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -33,6 +34,7 @@ const PostCreate = () => {
             </div>
 
          </div>
+      </div>
       </div>
    );
 };

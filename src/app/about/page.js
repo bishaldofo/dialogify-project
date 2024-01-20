@@ -1,6 +1,11 @@
 const { default: Image } = require("next/image");
 
-const page = () => {
+export const metadata = {
+    title: 'Dialogify | About',
+    description: 'Dialogify Home Page',
+}
+
+const aboutPage = () => {
     return (
         <div className="">
             <div className="bg-[#FF4500] flex flex-col md:flex-row gap-5 items-center justify-center py-20">
@@ -55,4 +60,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default aboutPage;
