@@ -4,6 +4,9 @@ import Image from "next/image";
 import { HiOutlinePencil } from "react-icons/hi2";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { FaRegQuestionCircle } from "react-icons/fa";
+import PostForm from "../postModel/postForm";
+
+
 
 const PostCreate = () => {
    return (
@@ -26,9 +29,21 @@ const PostCreate = () => {
                      <p className="text-sm">Answer</p>
                   </div>
                   <span className="sm:block md:hidden lg:block">|</span>
-                  <div className="flex md:w-32 btn bg-transparent border-0 gap-2 items-center">
-                     <HiOutlinePencil />
-                     <p className="text-sm">Post</p>
+                  <div  className="flex md:w-32  bg-transparent border-0 gap-2 items-center">
+                     
+                     
+                        {/* The button to open modal */}
+<label htmlFor="my_modal_7" className="btn">  <HiOutlinePencil /> Post</label>
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my_modal_7" className="modal-toggle" />
+<div className="modal" role="dialog">
+  <div className="modal-box  w-[1000px] h-[400px] ">
+   <PostForm></PostForm>
+  </div>
+  <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+</div>
+                     
                   </div>
                </div>
             </div>

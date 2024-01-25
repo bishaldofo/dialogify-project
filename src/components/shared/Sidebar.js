@@ -15,7 +15,7 @@ const Sidebar = () => {
       <div className="sticky top-20">
          <div className="w-full md:w-[250px] bg-white rounded-sm">
             <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label> 
-            <ul className="menu p-4 min-h-full text-base-content">
+            <ul className="menu p-4 min-h-full space-y-6 text-base-content">
                {/* Sidebar content here */}
                <li>
                   <Link href="/">
