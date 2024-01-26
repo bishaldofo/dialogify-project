@@ -116,10 +116,10 @@ const Form = ({type}) => {
                </Link>
             )}
          </div>
-         <div className='text-center mb-4'>
+         {/* <div className='text-center mb-4'>
             <span className='text-lg text-center m-auto'>Or</span>
          </div>
-         <button className='flex items-center w-full border p-3 rounded justify-center gap-2 m-auto'><Image src="https://i.ibb.co/QC1kq3P/google-logo.png" width={20} height={20} alt='google logo'></Image>Sign in with google</button>
+         <button className='flex items-center w-full border p-3 rounded justify-center gap-2 m-auto'><Image src="https://i.ibb.co/QC1kq3P/google-logo.png" width={20} height={20} alt='google logo'></Image>Sign in with google</button> */}
       </div>
    );
 };

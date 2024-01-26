@@ -22,6 +22,7 @@ const PostCreate = () => {
                   What do you want to ask or share?
                   </button>
                   <div className="flex sm:flex-row md:flex-col lg:flex-row items-center justify-around md:items-start lg:items-center lg:justify-between px-4">
+                     
                      <div className="flex md:w-32 btn bg-transparent border-0 gap-2 items-center">
                         <FaRegQuestionCircle />
                         <p className="text-sm">Ask</p>
