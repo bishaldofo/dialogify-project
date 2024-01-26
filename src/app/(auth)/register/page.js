@@ -1,6 +1,4 @@
 import Form from "@/components/Form/Form";
-import Image from "next/image";
-import Link from "next/link";
 
 const SignUp = () => {
 

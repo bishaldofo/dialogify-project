@@ -4,8 +4,12 @@ import Image from "next/image";
 import { HiOutlinePencil } from "react-icons/hi2";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { FaRegQuestionCircle } from "react-icons/fa";
+import { useSession } from "next-auth/react";
 
 const PostCreate = () => {
+   const { data: session } = useSession()
+  console.log(session)
+
    return (
       <div className=" sticky top-14 z-10" >
          <div className="w-full p-3 bg-white">

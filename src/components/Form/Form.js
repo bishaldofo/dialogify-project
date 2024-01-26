@@ -89,7 +89,7 @@ const Form = ({type}) => {
                <input defaultValue="" {...register("password", {
                   required: "Password is required",
                   validate: (value) => {
-                     if (value.length < 8 || !value.match(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/)) {
+                     if (value.length < 8 || !value.match(/[!@#$%^&*()_+npm i sharp{}\[\]:;<>,.?~\\/-]/)) {
                         return "Password must be at least 8 characters and contain at least one special character!"
                      }
                   }
