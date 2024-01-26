@@ -1,14 +1,16 @@
 "use client"
 
 import Image from "next/image";
-import { HiOutlinePencil } from "react-icons/hi2";
-import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { FaRegQuestionCircle } from "react-icons/fa";
-import PostForm from "../postModel/postForm";
+import PostForm from "../postModel/PostForm";
+
 
 
 
 const PostCreate = () => {
+   const { data: session } = useSession()
+  console.log(session)
+
    return (
       <div className=" sticky top-14   z-10  " >
          <div className="w-full  p-5 bg-white">
@@ -46,12 +48,12 @@ const PostCreate = () => {
                      
                   </div>
                </div>
-            </div>
 
+            </div>
          </div>
       </div>
       </div>
-   );
+   )
 };
 
 export default PostCreate;

@@ -1,5 +1,4 @@
 const { default: Image } = require("next/image");
-
 export const metadata = {
     title: 'Dialogify | About',
     description: 'Dialogify Home Page',
