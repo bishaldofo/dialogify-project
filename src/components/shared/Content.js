@@ -1,37 +1,48 @@
-"use client"
+
 
 import Image from "next/image";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { TfiCommentAlt } from "react-icons/tfi";
 
-const Content = () => {
+
+
+const getTopics = async () => {
+   try {
+       const res = await fetch('http://localhost:3000/api/topics', {
+         cache: 'no-store',
+      });
+
+      if(!res.ok) {
+         throw new Error("Failed to fetch topics");
+      }
+
+      return res.json();
+   } catch (error) {
+      console.log( "Error loaading topics" ,error);
+   }
+}
+
+ export default async function  Content()  {
+
+    const   { topics } = await getTopics();
+
+
    return (
       <div className="space-y-5">
-         <div className="card w-full bg-base-100 rounded-sm shadow-xl">
-            <div className="card-body p-3">
-               <div className="flex items-center gap-2">
-                  <div className="w-10 rounded-full">
-                     <Image width={100} height={100} className="rounded-full" alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                  </div>
-                  <div>
-                     <p className="text-sm font-bold">John Doe</p>
-                  </div>
-               </div>
-               <h2 className="card-title text-sm">Wizards of Waverly Place reboot has been announced !</h2>
-               <p className="text-sm">According to Deadline, Selena Gomez and David Henrie will executive produce the show and will reprise their roles as well.</p>
+
+         {/* dynamic content */}
+         { topics.map( (topic) => (  
+         <div key={topic} className="card w-full bg-base-100 rounded-sm shadow-xl">
+            <div className="card-body">
+               <h2 className="card-title"> {topic.title} </h2>
+               <p> {topic.description} </p>
             </div>
-            <figure><Image width={600} className="w-full" height={600} src="https://i.ibb.co/dLKCKmd/wizards-of-waverly-place-reboot-has-been-announced-v0-yp6morblj8dc1.webp" alt="News" /></figure>
-            <div className="flex items-center">
-               <div className="flex items-center p-1 m-2 shadow-sm border-gray-100 bg-gray-100 rounded gap-2">
-                  <button className="btn py-0 flex items-center gap-2 bg-transparent"><ImArrowUp />Likes 10</button>|
-                  <button className="btn py-0 bg-transparent border-0" title="Dislike"><ImArrowDown /></button>
-               </div>
-               <div>
-                  <button className="btn bg-transparent border-0"><TfiCommentAlt /></button>
-               </div>
-            </div>
+            <figure><Image width={600} className="w-full" height={600} src={topic.image} alt="News" /></figure>
          </div>
-         
+
+             ) )}
+
+         {/* static content */}
          <div className="card w-full bg-base-100 rounded-sm shadow-xl">
             <div className="card-body p-3">
                <div className="flex items-center gap-2">
@@ -85,4 +96,3 @@ const Content = () => {
    );
 };
 
-export default Content;
