@@ -1,9 +1,6 @@
-
-
-import React from 'react';
-import contactImage from '../../assets/Our Team.png'
-import Image from 'next/image';
-import Contact from '@/components/ContactUs/Contact';
+import contactImage from '../../../assets/Our Team.png'
+import Contact from "@/components/ContactUs/Contact";
+import Image from "next/image";
 
 const contactpage = () => {
     return (
