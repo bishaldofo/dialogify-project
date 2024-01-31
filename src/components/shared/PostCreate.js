@@ -1,13 +1,8 @@
-"use client"
-
 import Image from "next/image";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { HiOutlinePencilSquare, HiOutlinePencil } from "react-icons/hi2";
-import { useSession } from "next-auth/react";
 
 const PostCreate = () => {
-   const { data: session } = useSession()
-  console.log(session)
 
    return (
       <div className=" sticky top-14 z-10" >

@@ -1,3 +1,5 @@
+import Navbar from "@/components/shared/Navbar";
+
 const { default: Image } = require("next/image");
 export const metadata = {
     title: 'Dialogify | About',
@@ -7,6 +9,9 @@ export const metadata = {
 const aboutPage = () => {
     return (
         <div className="">
+            <div className='shadow-md bg-white sticky top-0 z-50'>
+                <Navbar/>
+            </div>
             <div className="bg-[#FF4500] flex flex-col md:flex-row gap-5 items-center justify-center py-20">
                 <div className="max-w-3xl flex gap-6 items-center">
                     <div className="w-1/2">
