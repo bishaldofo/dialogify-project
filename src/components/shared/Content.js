@@ -18,7 +18,7 @@ const Content = () => {
                   </div>
                </div>
                <h2 className="card-title text-sm">Wizards of Waverly Place reboot has been announced !</h2>
-               <p className="text-sm">According to Deadline, Selena Gomez and David Henrie will executive produce the show and will reprise their roles as well.</p>
+               <p className="text-sm">According to Deadline, Selena Gomez and David Henrie will executive produce the show and will reprise their roles as well..</p>
             </div>
             <figure><Image width={600} className="w-full" height={600} src="https://i.ibb.co/dLKCKmd/wizards-of-waverly-place-reboot-has-been-announced-v0-yp6morblj8dc1.webp" alt="News" /></figure>
             <div className="flex items-center">
