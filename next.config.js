@@ -3,7 +3,8 @@ const nextConfig = {
    images: {
       domains: [
          "daisyui.com",
-         "i.ibb.co"
+         "i.ibb.co",
+         "res.cloudinary.com"
       ]
    }
 }
