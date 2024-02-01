@@ -1,15 +1,16 @@
-"use client"
-
 import Image from "next/image";
-import { FaRegQuestionCircle } from "react-icons/fa";
 import PostForm from "../postModel/PostForm";
 
 
 
 
+
+
+
+
+
 const PostCreate = () => {
-   const { data: session } = useSession()
-  console.log(session)
+  
 
    return (
       <div className=" sticky top-14   z-10  " >
@@ -22,12 +23,12 @@ const PostCreate = () => {
                <button className="w-full bg-slate-300 py-2 px-5 rounded-full text-left">What do you want to ask or share?</button>
                <div className="flex sm:flex-row md:flex-col lg:flex-row items-center justify-around md:items-start lg:items-center lg:justify-between px-4">
                   <div className="flex md:w-32 btn bg-transparent border-0 gap-2 items-center">
-                     <FaRegQuestionCircle />
+                    
                      <p className="text-sm">Ask</p>
                   </div>
                   <span className="sm:block md:hidden lg:block">|</span>
                   <div className="flex md:w-32 btn bg-transparent border-0 gap-2 items-center">
-                     <HiOutlinePencilSquare />
+                     
                      <p className="text-sm">Answer</p>
                   </div>
                   <span className="sm:block md:hidden lg:block">|</span>
@@ -35,7 +36,7 @@ const PostCreate = () => {
                      
                      
                         {/* The button to open modal */}
-<label htmlFor="my_modal_7" className="btn">  <HiOutlinePencil /> Post</label>
+<label htmlFor="my_modal_7" className="btn">  Post</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my_modal_7" className="modal-toggle" />

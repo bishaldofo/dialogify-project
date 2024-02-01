@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import connectmongoDB from "../../../../../libs/mongodb";
 import Topic from "../../../../../models/topic";
+import connectmongoDB from "../../../../../libs/mongodb";
+
 
 
 

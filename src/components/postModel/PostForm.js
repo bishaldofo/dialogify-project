@@ -1,7 +1,9 @@
-"use client"
+
+
 
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+
 
   const  PostForm = () => {
     const [title, setTitle] = useState("");
@@ -26,9 +28,11 @@ import React, { useState } from 'react';
              },
              body: JSON.stringify({title, description, image}),
       });
-
+      
       if ( res.ok ) {
-           router.push('/');
+        
+        router.push("/");
+           
       } else {
         throw new Error("Failed to create a topic");
       }
@@ -37,6 +41,8 @@ import React, { useState } from 'react';
          console.log(error);
      }
     }
+
+
     return (
         
             
