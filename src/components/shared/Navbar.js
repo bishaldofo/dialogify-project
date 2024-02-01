@@ -1,13 +1,17 @@
 "use client"
 
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoHome } from "react-icons/io5";
 
 const Navbar = () => {
    const { data: session } = useSession()
-  console.log(session)
+   const user = session?.user;
+   
+   const handleLogout = async () => {
+      signOut({callbackUrl: "/login"})
+   }
 
    const navItem = <>
          <li><Link href="/"><IoHome className="text-xl" /></Link></li>
@@ -47,17 +51,18 @@ const Navbar = () => {
                            <p className="pl-3 mb-2 font-bold text-base">{session.user.name}</p>
                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                               <div className="w-10 rounded-full">
-                                 <Image width={100} height={100} alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                 <Image width={100} height={100} style={{ objectFit: 'contain', width: 'auto', height: 'auto' }} alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                               </div>
                            </div>
                         </div>
                         
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                            <li>
-                              <Link href="/">Profile</Link>
+                              <Link href="/profile">Profile</Link>
                            </li>
                            <li>
                               <Link href="/">Logout</Link>
+                              <button onClick={handleLogout}>Logout</button>
                            </li>
                         </ul>
                      </div>

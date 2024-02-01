@@ -45,7 +45,7 @@ const Form = ({type}) => {
 
          if (res.ok) {
             toast.success("You have logged in successfully!")
-            router.push("/")
+            router.push("/profile")
          }
 
          if (res.error) {
