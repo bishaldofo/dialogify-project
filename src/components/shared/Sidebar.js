@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 const Sidebar = () => {
   const [data, setData] = useState([]);
+  console.log(data)
 
   useEffect(() => {
     const fetchData = async () => {

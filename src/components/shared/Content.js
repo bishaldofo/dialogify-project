@@ -7,7 +7,7 @@ import { TfiCommentAlt } from "react-icons/tfi";
 
 const Content = () => {
   const [data, setData] = useState([]);
-//   console.log(data);
+  console.log(data);
 
   useEffect(() => {
     const fetchData = async () => {
