@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 
@@ -10,7 +9,7 @@ const Sidebar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/categories", { cache: "no-store" });
+        const res = await fetch("/api/categories", { cache: "no-store" });
         if (!res.ok) throw new Error('Not Found');
         const jsonData = await res.json();
         setData(jsonData);

@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 
 const HomePage = () => {
   const { data: session } = useSession()
-  console.log(session)
+
 
   return (
     <>
@@ -20,7 +20,7 @@ const HomePage = () => {
           <Sidebar/>
         </div>
         <div className="max-w-6xl m-auto flex-1 space-y-5">
-          <PostCreate/>
+        <PostCreate/>
           <Content/>
         </div>
         <div className="w-full md:w-[250px]">

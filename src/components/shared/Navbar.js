@@ -7,7 +7,7 @@ import { IoHome } from "react-icons/io5";
 
 const Navbar = () => {
    const { data: session } = useSession()
-  console.log(session)
+//   console.log(session)
 
    const navItem = <>
          <li><Link href="/"><IoHome className="text-xl" /></Link></li>
