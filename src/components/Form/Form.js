@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -13,7 +14,7 @@ const Form = ({type}) => {
       handleSubmit,
       watch,
       formState: { errors },
-   } = useForm()
+   } = useForm();
 
    const router = useRouter();
    

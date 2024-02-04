@@ -4,11 +4,11 @@ import Content from "@/components/shared/Content";
 import Navbar from "@/components/shared/Navbar";
 import PostCreate from "@/components/shared/PostCreate";
 import Sidebar from "@/components/shared/Sidebar";
-import { useSession } from "next-auth/react";
+
+
 
 const HomePage = () => {
-  const { data: session } = useSession()
-  console.log(session)
+  
 
   return (
     <>

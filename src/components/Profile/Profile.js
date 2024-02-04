@@ -3,7 +3,6 @@
 import { useSession } from "next-auth/react";
 import { CldUploadButton } from "next-cloudinary";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Loader from "../Loader/Loader";
@@ -12,7 +11,7 @@ const Profile = () => {
    const { data: session } = useSession()
    console.log(session)
    const user = session?.user;
-   const router = useRouter();
+   
    const [loading, setLoading] = useState(true)
 
    useEffect(() => {
@@ -23,7 +22,7 @@ const Profile = () => {
          })
       }
       setLoading(false)
-   }, [user]);
+   },  [ user  ]);
 
    const { register, watch, setValue, reset, handleSubmit, formState: { error } } = useForm()
    
