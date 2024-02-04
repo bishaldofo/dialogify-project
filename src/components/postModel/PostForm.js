@@ -1,7 +1,8 @@
 
 
 
-import { useRouter } from 'next/navigation';
+
+
 import React, { useState } from 'react';
 
 
@@ -9,8 +10,9 @@ import React, { useState } from 'react';
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
-    const router = useRouter();
-
+    
+    
+    
     const handleSubmit = async (e) => {
      e.preventDefault();
 
@@ -21,17 +23,17 @@ import React, { useState } from 'react';
 
      try {
 
-     const res = await fetch('http://localhost:3000/api/topics', {
+     const res = await fetch('/api/topics', {
              method: "POST",
              headers: {
               "Content-type": "application/json"
              },
-             body: JSON.stringify({title, description, image}),
+             body: JSON.stringify({title, description, image }),
       });
       
       if ( res.ok ) {
+        window.location.reload()
         
-        router.push("/");
            
       } else {
         throw new Error("Failed to create a topic");

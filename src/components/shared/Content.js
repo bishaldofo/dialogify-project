@@ -1,10 +1,15 @@
+
+
+
+
+
 import Image from "next/image";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { TfiCommentAlt } from "react-icons/tfi";
 
   export const getTopics = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/topics", {
+    const res = await fetch("/api/topics", {
       cache: "no-store",
     });
 
@@ -33,7 +38,25 @@ export default async function Content() {
           key={topic}
           className="card w-full bg-base-100 rounded-sm shadow-xl"
         >
+
+          
           <div className="card-body">
+
+          <div className="flex items-center gap-2">
+            <div className="w-10 rounded-full">
+              <Image  
+                width={100}
+                height={100}
+                className="rounded-full"
+                alt="Tailwind CSS Navbar component"
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              />
+            </div>
+            <div>
+              <p className="text-sm font-bold">John China</p>
+            </div>
+          </div>
+
             <h2 className="card-title"> {topic.title} </h2>
             <p> {topic.description} </p>
           </div>
@@ -108,6 +131,10 @@ export default async function Content() {
           </div>
         </div>
       </div>
+
+
+
+
 
       <div className="card w-full bg-base-100 rounded-sm shadow-xl">
         <div className="card-body p-3">

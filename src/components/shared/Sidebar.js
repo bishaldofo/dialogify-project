@@ -1,69 +1,48 @@
-
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 
+const Sidebar = () => {
+  const [data, setData] = useState([]);
 
-
- const getSidebar = async () => {
-   try {
-       const res = await fetch('https://dialogify-server.vercel.app/categories', {
-         cache: 'no-store',
-      });
-
-      if(!res.ok) {
-         throw new Error("Failed to fetch topics");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/categories", { cache: "no-store" });
+        if (!res.ok) throw new Error('Not Found');
+        const jsonData = await res.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle error as needed
       }
+    };
 
-      return res.json();
-   } catch (error) {
-      console.log( "Error loaading topics" ,error);
-   }
-  }
-
-
-  export default async function  Sidebar()  {
-
-   const   { items } = await getSidebar();
-
-//   const [categories, setCategories] = useState([]);
-//   console.log(categories)
-// //   useEffect(() => {
-//     const fetchCategories = async () => {
-//       try {
-//         const fetchedCategories = await getAllCategories();
-//         setCategories(fetchedCategories);
-//       } catch (error) {
-//         console.error('Error fetching categories:', error);
-//       }
-//     };
-
-   //  fetchCategories();
-//   }, []);
+    fetchData();
+  }, []);
 
   return (
     <div className="sticky top-20">
       <div className="w-full md:w-[250px] bg-white rounded-sm">
         <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-        
+        <ul className="menu p-4 min-h-full text-base-content">
           {/* Sidebar content here */}
-          {items.map( ( item ) => (
-            <ul key={item._id} className="menu p-4 min-h-full text-base-content">
-            <li  className="my-1">
+          {data.map((category) => (
+            <li key={category._id} className="my-1">
               <Link href="/">
                 <div className="flex items-center gap-2">
-                  <Image src={item.icon || item.image} alt="Icon" width={25} height={25}></Image>
-                  <p>{item.category}</p>
+                  <Image src={category.icon || category.image} alt="Icon" width={25} height={25}></Image>
+                  <p>{category.category}</p>
                 </div>
               </Link>
             </li>
-             </ul>
           ))}
-       
+        </ul>
       </div>
     </div>
   );
 };
 
-
+export default Sidebar;

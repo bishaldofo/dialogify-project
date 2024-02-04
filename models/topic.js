@@ -5,6 +5,7 @@ import mongoose, { Schema } from "mongoose";
         title: String,
         description: String,
         image: String,
+        
     },
     {
         timestamps: true,
