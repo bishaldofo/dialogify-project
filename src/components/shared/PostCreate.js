@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import PostForm from "../postModel/PostForm";
+import { useSession } from "next-auth/react";
 
 
 
@@ -27,7 +28,6 @@ const PostCreate = () => {
                   </div>
                   <span className="sm:block md:hidden lg:block">|</span>
                   <div className="flex md:w-32 btn bg-transparent border-0 gap-2 items-center">
-                     <HiOutlinePencilSquare />
                      <p className="text-sm">Answer</p>
                   </div>
                   <span className="sm:block md:hidden lg:block">|</span>
@@ -35,7 +35,7 @@ const PostCreate = () => {
                      
                      
                         {/* The button to open modal */}
-<label htmlFor="my_modal_7" className="btn">  <HiOutlinePencil /> Post</label>
+<label htmlFor="my_modal_7" className="btn">Post</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my_modal_7" className="modal-toggle" />
