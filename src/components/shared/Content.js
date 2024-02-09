@@ -3,13 +3,14 @@
 
 
 
+import axios from "axios";
 import Image from "next/image";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { TfiCommentAlt } from "react-icons/tfi";
 
   export const getTopics = async () => {
   try {
-    const res = await fetch("/api/topics", {
+    const res = await fetch("https://dialogify-server-xi.vercel.app/posts", {
       cache: "no-store",
     });
 
@@ -28,6 +29,21 @@ export default async function Content() {
 
   const response = await getTopics();
   const topics = response?.topics || [];
+
+
+  const handleLike = async (_id) => {
+     try{
+      const {data} = await axios.put('/api/topics', {_id});
+      console.log("Like", data);
+     } catch (error) {
+      console.log(error);
+     }
+
+  }
+
+  // const handleUnike = async (_id) => {
+
+  // }
 
    
   return (
@@ -71,6 +87,27 @@ export default async function Content() {
             height={600}
             alt="News"
           />
+
+   <div className="flex items-center">
+          <div className="flex items-center p-1 m-2 shadow-sm border-gray-100 bg-gray-100 rounded gap-2">
+            <button onClick={() => handleLike(topic._id) }  className="btn py-0 flex items-center gap-2 bg-transparent">
+              <ImArrowUp />
+              Likes 10
+            </button>
+            |
+            <button
+              className="btn py-0 bg-transparent border-0"
+              title="Dislike"
+            >
+              <ImArrowDown />
+            </button>
+          </div>
+          <div>
+            <button className="btn bg-transparent border-0">
+              <TfiCommentAlt />
+            </button>
+          </div>
+        </div>
 
           {/* <Image src={ `/${topic.image} ` } alt="nothing" width={376} height={190} layout="fixed" /> */}
         </div>
