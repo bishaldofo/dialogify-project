@@ -1,4 +1,4 @@
 export const getAllPosts = async()=>{
-    const res = await fetch('http://localhost:5000/posts')
+    const res = await fetch('https://dialogify-server-xi.vercel.app/posts')
     return  res.json()
 }

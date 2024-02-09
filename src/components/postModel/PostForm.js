@@ -45,7 +45,7 @@ const PostForm = () => {
     try {
       const currentDate = new Date().toISOString();
 
-      const res = await fetch('http://localhost:5000/posts', {
+      const res = await fetch('https://dialogify-server-xi.vercel.app/posts', {
         method: "POST",
         headers: {
           "Content-type": "application/json"

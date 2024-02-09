@@ -1,15 +1,13 @@
 "use client"
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import LogIn from "../(auth)/login/page";
-import HomePage from "./home/page";
 import Navbar from "@/components/shared/Navbar";
 import Sidebar from "@/components/shared/Sidebar";
 import PostCreate from "@/components/shared/PostCreate";
 import Content from "@/components/shared/Content";
 import Advertise from "@/components/shared/Advertise";
 
-const HomePages = () => {
+const HomePage = () => {
   const router = useRouter()
   const { data: session } = useSession()
   const user = session?.user;
@@ -40,4 +38,4 @@ const HomePages = () => {
   )
 }
 
-export default HomePages;
+export default HomePage;

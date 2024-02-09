@@ -3,10 +3,44 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { getAllPosts } from "@/utils/getAllPosts";
 import Link from "next/link";
+import { useState } from "react";
 
 export default async function Content() {
+  const [like, setLike] = useState(100);
+  const [dislike, setDislike] = useState(4);
+  const [likeActive, setLikeActive] = useState(false);
+  const [dislikeActive, setDislikeActive] = useState(false);
+  
   let posts = await getAllPosts();
   console.log(posts);
+
+  const likef = () => {
+    if (likeActive) {
+      setLikeActive(false);
+      setLike(like - 1);
+    } else {
+      setLikeActive(true);
+      setLike(like + 1);
+      if (dislikeActive) {
+        setDislikeActive(false);
+        setDislike(dislike - 1);
+      }
+    }
+  };
+
+  const dislikef = () => {
+    if (dislikeActive) {
+      setDislikeActive(false);
+      setDislike(dislike - 1);
+    } else {
+      setDislikeActive(true);
+      setDislike(dislike + 1);
+      if (likeActive) {
+        setLikeActive(false);
+        setLike(like - 1);
+      }
+    }
+  };
 
   // Sort posts by date in descending order
   posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -18,9 +52,7 @@ export default async function Content() {
       return (
         <>
           {`${description.slice(0, maxCharacters)}... `}
-
-            <a className="btn btn-link">Read More</a>
-
+          <a className="btn btn-link">Read More</a>
         </>
       );
     } else {
@@ -90,13 +122,12 @@ export default async function Content() {
           </figure>
           <div className="flex items-center">
             <div className="flex items-center p-1 m-2 shadow-sm border-gray-100 bg-gray-100 rounded gap-2">
-              <button className="btn py-0 flex items-center gap-2 bg-transparent">
-                <ImArrowUp />
-                Likes 10
+              <button onClick={likef} className="btn py-0 flex items-center gap-2 bg-transparent">
+                Likes {like}
               </button>
               |
-              <button className="btn py-0 bg-transparent border-0" title="Dislike">
-                <ImArrowDown />
+              <button onClick={dislikef} className="btn py-0 bg-transparent border-0" title="Dislike">
+                Dislikes {dislike}
               </button>
             </div>
             <div>
