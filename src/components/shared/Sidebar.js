@@ -1,24 +1,27 @@
 "use client"
-
-import { useState, useEffect } from 'react';
-import { getAllCategories } from '@/utils/getAllCategories';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
 
 const Sidebar = () => {
-  const [categories, setCategories] = useState([]);
-  console.log(categories)
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const fetchedCategories = await getAllCategories();
-        setCategories(fetchedCategories);
+        const res = await fetch("/api/categories", { cache: "no-store" });
+        if (!res.ok) throw new Error('Not Found');
+        const jsonData = await res.json();
+        setData(jsonData);
       } catch (error) {
-        console.error('Error fetching categories:', error);
+        console.error('Error fetching data:', error);
+        // Handle error as needed
       }
     };
 
-    fetchCategories();
+    fetchData();
   }, []);
 
   return (
@@ -27,7 +30,7 @@ const Sidebar = () => {
         <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu p-4 min-h-full text-base-content">
           {/* Sidebar content here */}
-          {categories.map((category) => (
+          {data.map((category) => (
             <li key={category._id} className="my-1">
               <Link href="/">
                 <div className="flex items-center gap-2">

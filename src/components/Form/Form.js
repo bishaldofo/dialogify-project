@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -7,16 +8,16 @@ import { useForm } from 'react-hook-form';
 import { signIn } from "next-auth/react";
 import toast from 'react-hot-toast';
 
-const Form = ({type}) => {
+const Form = ({ type }) => {
    const {
       register,
       handleSubmit,
       watch,
       formState: { errors },
-   } = useForm()
+   } = useForm();
 
    const router = useRouter();
-   
+
    const onSubmit = async (data) => {
       if (type === "register") {
          const res = await fetch("/api/auth/register", {
@@ -39,7 +40,7 @@ const Form = ({type}) => {
 
       if (type === "login") {
          const res = await signIn("credentials", {
-            ...data, 
+            ...data,
             redirect: false,
          })
 
@@ -53,25 +54,25 @@ const Form = ({type}) => {
          }
       }
    };
-      
+
 
    return (
       <div className='w-96'>
-         <div className='text-center text-xl text-[#0079D3]'><p><Link href="/">Dialogify</Link></p></div>
+         <div className='text-center text-xl text-[#0079D3]'><p>Dialogify</p></div>
          <form className="card-body p-0 pt-5" onSubmit={handleSubmit(onSubmit)}>
 
             {type === "register" && (
-            <div>
-               <div className="form-control">
-                  <label className="label">
-                     <span className="label-text">Name</span>
-                  </label>
-                  <input defaultValue="" {...register("name", { required: "Name is required" })} type="text" name='name' placeholder="Your Name" className="input input-bordered" />
-               </div>
-               {errors.name && (
+               <div>
+                  <div className="form-control">
+                     <label className="label">
+                        <span className="label-text">Name</span>
+                     </label>
+                     <input defaultValue="" {...register("name", { required: "Name is required" })} type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                  </div>
+                  {errors.name && (
                      <p className='text-red-500'>{errors.name.message}</p>
-               )}
-            </div>
+                  )}
+               </div>
             )}
             <div className="form-control">
                <label className="label">
@@ -80,8 +81,8 @@ const Form = ({type}) => {
                <input defaultValue="" {...register("email", { required: "Email is required" })} type="email" name='email' placeholder="Email" className="input input-bordered" />
             </div>
             {errors.email && (
-                  <p className='text-red-500'>{errors.email.message}</p>
-               )}
+               <p className='text-red-500'>{errors.email.message}</p>
+            )}
             <div className="form-control">
                <label className="label">
                   <span className="label-text">Password</span>
@@ -94,11 +95,11 @@ const Form = ({type}) => {
                      }
                   }
                })} type="password" name='password' placeholder="Password" className="input input-bordered" />
-               
+
             </div>
             {errors.password && (
-                  <p className='text-red-500'>{errors.password.message}</p>
-               )}
+               <p className='text-red-500'>{errors.password.message}</p>
+            )}
             <div className="form-control mt-6">
                <button className="btn btn-primary" type='submit'>
                   {type === "register" ? "Sign Up" : "Login"}
