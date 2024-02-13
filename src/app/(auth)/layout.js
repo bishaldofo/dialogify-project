@@ -6,8 +6,8 @@ import Provider from '@/components/Provider/Provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Dialogify | Home',
-  description: 'Dialogify Home Page',
+  title: 'Dialogify | Login',
+  description: 'Dialogify Login Page',
 }
 
 export default function RootLayout({ children }) {

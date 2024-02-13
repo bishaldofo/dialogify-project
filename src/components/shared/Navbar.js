@@ -8,6 +8,7 @@ import { IoHome } from "react-icons/io5";
 const Navbar = () => {
    const { data: session } = useSession()
    const user = session?.user;
+   // console.log(user)
    
    const handleLogout = async () => {
       signOut({callbackUrl: "/login"})

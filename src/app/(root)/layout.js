@@ -1,17 +1,14 @@
+import { Inter } from "next/font/google";
+import "../globals.css";
+import Provider from "@/components/Provider/Provider";
+import TanstacktQueary from "@/components/QuearClient/TanstacktQueary";
 
-
-import { Inter } from 'next/font/google'
-import Navbar from "@/components/shared/Navbar"
-import '../globals.css'
-import Provider from '@/components/Provider/Provider'
-
-
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Dialogify | Home',
-  description: 'Dialogify Home Page',
-}
+  title: "Dialogify | Home",
+  description: "Dialogify Home Page",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -19,10 +16,12 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Provider>
           <div>
-            {children}
+            <TanstacktQueary>
+              <div>{children}</div>
+            </TanstacktQueary>
           </div>
         </Provider>
       </body>
     </html>
-  )
+  );
 }
