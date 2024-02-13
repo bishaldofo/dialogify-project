@@ -11,7 +11,7 @@ const Sidebar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/categories", { cache: "no-store" });
+        const res = await fetch("/api/categories");
         if (!res.ok) throw new Error('Not Found');
         const jsonData = await res.json();
         setData(jsonData);

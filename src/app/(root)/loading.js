@@ -1,7 +1,11 @@
+
+ import Image from "next/image";
+import loadingImage from "../../assets/LoadingImage.gif";
 const loading = () => {
    return (
       <div className="flex items-center h-screen justify-center">
-         <h1>Loading....</h1>
+         <Image src={loadingImage} layout="fill"
+        objectFit="cover" alt='Loading....' />
       </div>
    );
 };

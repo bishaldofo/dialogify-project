@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import Topic from "../../../../../models/topic";
+
 import { connectToDB } from "@/mongodb";
+import Topic from "@/models/topic";
 
 
 
